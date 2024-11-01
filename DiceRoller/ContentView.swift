@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let gradienColor : [Color] = [.gradientTop, .gradienBottom]
     
     @State private var numberOfDice: Int = 1
     
@@ -15,6 +16,7 @@ struct ContentView: View {
         VStack {
             Text("Dice Roller")
                 .font(.largeTitle.lowercaseSmallCaps())
+                .foregroundStyle(.white)
             HStack {
                 ForEach(1...numberOfDice, id: \.description){ _ in
                     DiceView()
@@ -22,24 +24,29 @@ struct ContentView: View {
             }
             
             HStack {
-                Button("Remove Dice") {
+                Button("Remove Dice", systemImage: "minus.circle.fill") {
                     withAnimation {numberOfDice -= 1
                     }
                 }
                 .disabled(numberOfDice == 1)
                 
-                Button("Add Dice") {
+                Button("Add Dice", systemImage: "plus.circle.fill") {
                     withAnimation { numberOfDice += 1
                     }
                 }
-                .disabled(numberOfDice == 3)
+                .disabled(numberOfDice == 5)
             }
+            .padding()
+            .labelStyle(.iconOnly)
+            .font(.title)
+            .symbolRenderingMode(.hierarchical)
         }
         
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
-
+        .background(Gradient(colors: gradienColor))
+        .tint(.white)
+        
     }
 }
 
