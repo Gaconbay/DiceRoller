@@ -10,16 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Dice Roller")
+                .font(.largeTitle.lowercaseSmallCaps())
+            HStack {
+                DiceView()
+                DiceView()
+                DiceView()
+            }
         }
         
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.tint)
-        .border(.red, width: 1)
+        .background(.white)
+
     }
 }
 
