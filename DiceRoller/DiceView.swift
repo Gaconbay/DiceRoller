@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DiceView: View {
-    
     @State private var numberOfPips: Int = 1
     
     var body: some View {
